@@ -1,0 +1,22 @@
+name: Test docker
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Start
+      uses: actions/checkout@v3
+    - name: Run the build process with Docker
+      uses: addnab/docker-run-action@v3
+      with:
+          image: testadirapa/actiontest:latest
+          options: -e MYENV=helloworld
