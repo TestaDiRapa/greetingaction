@@ -15,5 +15,5 @@ jobs:
     steps:
     - name: Start
       env:
-        TEST_ENV: ${ $RANDOM$RANDOM }
+        TEST_ENV: ${{ $RANDOM$RANDOM }}
       run: echo $TEST_ENV
