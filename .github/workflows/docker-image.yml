@@ -18,3 +18,6 @@ jobs:
         export TEST_ENV=$RANDOM$RANDOM
         exit 1
         echo $TEST_ENV
+    - name: Clean
+      if: always()
+      run: echo $TEST_ENV
