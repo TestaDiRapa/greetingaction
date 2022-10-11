@@ -14,9 +14,6 @@ jobs:
 
     steps:
     - name: Start
-      uses: actions/checkout@v3
-    - name: Run the build process with Docker
-      uses: addnab/docker-run-action@v3
-      with:
-          image: testadirapa/actiontest:latest
-          options: -e MYENV=helloworld
+      env:
+        TEST_ENV: ${ $RANDOM$RANDOM }
+      run: echo $TEST_ENV
