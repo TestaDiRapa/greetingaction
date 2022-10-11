@@ -19,4 +19,6 @@ jobs:
         echo $TEST_ENV
     - name: Clean
       if: always()
-      run: echo ${{ env.TEST_ENV }}
+      env:
+        BOH: ${{ env.TEST_ENV }}
+      run: echo $BOH
