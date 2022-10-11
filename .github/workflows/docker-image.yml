@@ -16,7 +16,11 @@ jobs:
     - name: Start
       env:
         FOO: ${{ github.actor }}-${{ github.run_id }}-${{ github.run_attempt }}
-      run: echo ${{ env.FOO }}
+      run: |
+        echo ${{ env.FOO }}
+        exit 1
     - name: Clean
       if: always()
+      env:
+        FOO: ${{ github.actor }}-${{ github.run_id }}-${{ github.run_attempt }}
       run: echo ${{ env.FOO }}
