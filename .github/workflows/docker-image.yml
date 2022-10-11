@@ -16,4 +16,5 @@ jobs:
     - name: Start
       run: |
         export TEST_ENV=$RANDOM$RANDOM
+        exit 1
         echo $TEST_ENV
