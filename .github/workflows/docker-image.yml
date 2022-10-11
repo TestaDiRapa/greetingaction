@@ -14,11 +14,9 @@ jobs:
 
     steps:
     - name: Start
-      run: |
-        export TEST_ENV=$RANDOM$RANDOM >> $GITHUB_ENV
-        echo $TEST_ENV
+      env:
+        FOO: ${{ github.actor }}-${{ github.run_id }}-${{ github.run_attempt }}
+      run: echo ${{ env.FOO }}
     - name: Clean
       if: always()
-      env:
-        BOH: ${{ env.TEST_ENV }}
-      run: echo $BOH
+      run: echo ${{ env.FOO }}
